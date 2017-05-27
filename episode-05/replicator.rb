@@ -20,6 +20,7 @@ class Replicator
 
 
   def replicate(recipe)
+    
     @recipe = recipe
     retrieve_glass
     transport_ingredients_to_glass
