@@ -12,7 +12,7 @@ class Reactor
   end
 
   def stock
-    @dilithium_crystals += 100
+    @dilithium_crystals += 10000
   end
 
   def draw_power(amount = 1)
@@ -24,7 +24,7 @@ class Reactor
 
   def drain_power
     @dilithium_crystals -= 1 if on?
-    turn_off if @dilithium_crystals < 100
+    turn_off if @dilithium_crystals == 0
   end
 
   def turn_on
@@ -36,7 +36,7 @@ class Reactor
   end
 
   def on?
-    !@on
+    @on
   end
 
   def off?

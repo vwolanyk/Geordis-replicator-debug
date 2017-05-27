@@ -8,11 +8,11 @@ class Reactor
     @on = false
     @dilithium_crystals = 0
     stock
-    # turn_on
+    turn_on
   end
 
   def stock
-    @dilithium_crystals += 100
+    @dilithium_crystals += 10000
   end
 
   def draw_power(amount = 1)
@@ -36,7 +36,7 @@ class Reactor
   end
 
   def on?
-    false
+    @on
   end
 
   def off?
@@ -51,7 +51,7 @@ class Reactor
 
   def cool_items_in_core
     @core.contents.each do |item|
-      item.temperature -= 1 if draw_power(222)
+      item.temperature -= 1 if draw_power(2)
     end
   end
 
