@@ -39,6 +39,8 @@ class App
     display.star_saying_replicator_command
     display.press_any_key
     display.replicator_whirling_effect
+  
+
     enterprise.replicator.replicate(episode.recipe)
     display.star_anticipating_replicator_creation
     glass = enterprise.replicator.plate.contents.first

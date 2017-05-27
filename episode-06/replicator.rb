@@ -1,3 +1,5 @@
+require "pry"
+
 class Replicator
 
   attr_reader :plate
@@ -15,12 +17,17 @@ class Replicator
   end
 
   def replicate(recipe)
+
     @recipe = recipe
     retrieve_glass
+
+
     transport_ingredients_to_glass
+
     mix
     adjust_temperature
     transport_glass_to_replicator_plate
+
   end
 
   def retrieve_glass
@@ -45,6 +52,7 @@ class Replicator
     if @power && @enterprise.reactor.draw_power(3)
       glass_in_tummy.inside.contents.shuffle!.compact!
     end
+
   end
 
   def adjust_temperature

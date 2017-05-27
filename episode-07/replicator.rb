@@ -1,3 +1,5 @@
+require "pry"
+
 class Replicator
 
   attr_reader :plate
@@ -17,12 +19,14 @@ class Replicator
   def replicate(recipe)
     @recipe = recipe
     retrieve_glass
+    transport_ingredients_to_glass
     mix
     adjust_temperature
     transport_glass_to_replicator_plate
   end
 
   def retrieve_glass
+
     @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
   end
 

@@ -1,3 +1,6 @@
+
+require 'pry'
+
 class Replicator
 
   attr_reader :plate
@@ -11,8 +14,10 @@ class Replicator
   end
 
   def connect_to_power
+
     @power = @enterprise.reactor.on
   end
+
 
   def replicate(recipe)
     @recipe = recipe
@@ -25,7 +30,9 @@ class Replicator
 
   def retrieve_glass
     @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
+
   end
+
 
   def glass_in_tummy
     @tummy.contents.first
@@ -37,6 +44,7 @@ class Replicator
     @recipe.ingredients.each do |ingredient_name|
       @enterprise.transporter.energize(obj: @enterprise.pantry.find_ingredient(ingredient_name), from: @enterprise.pantry.shelf, to: glass_in_tummy.inside)
     end
+
   end
 
   def mix
@@ -74,7 +82,7 @@ class Replicator
   end
 
   def transport_glass_to_replicator_plate
-    return
+
     @enterprise.transporter.energize(obj: glass_in_tummy, from: @tummy, to: @plate)
   end
 
